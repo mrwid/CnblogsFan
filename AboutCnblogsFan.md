@@ -1,5 +1,5 @@
-﻿CnblogsFan项目介绍
-==================
+﻿CnblogsFan项目详细介绍
+======================
 
 *项目名称: CnblogsFan
 
@@ -28,3 +28,5 @@
 *Wid的博客: http://www.cnblogs.com/mr-wid/
 
 *项目起始日期: 2012.10.08
+
+Author: Wid
