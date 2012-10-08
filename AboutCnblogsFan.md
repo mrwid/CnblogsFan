@@ -22,3 +22,9 @@
 *项目类型: 开源
 
 *开源协议: GNU GPL
+
+*项目托管地址: https://github.com/mrwid/CnblogsFan
+
+*Wid的博客: http://www.cnblogs.com/mr-wid/
+
+*项目起始日期: 2012.10.08
