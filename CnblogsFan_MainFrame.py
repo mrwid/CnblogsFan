@@ -237,10 +237,12 @@ class MainFrame(wx.Frame):
     def OnSelectSpiderMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.SpiderModeDlg(self)
         dlg.ShowModal()
+
     #响应菜单"指定采集"按钮
     def OnSelectUserBlogMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.SelectUserBlogDlg(self)
         dlg.ShowModal()
+
     #响应菜单"分类采集"按钮
     def OnSelectUseKindsMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.UseClassificationDlg(self)
