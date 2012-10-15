@@ -12,6 +12,7 @@
 #-------------------------------------------------------------------------------
 
 import wx
+import CnblogsFan_GetArgumentsDlg
 
 class MainFrame(wx.Frame):
     def __init__(self):
@@ -60,7 +61,7 @@ class MainFrame(wx.Frame):
             'CnblogsFan_Setting.png',
             'CnblogsFan_About.png'
         ]
-        self.lstMenu = []                                                          #菜单列表
+        self.lstMenu = []                                                       #菜单列表
         menuTip = [
             u'采集整个Cnblogs上的随笔.',
             u'采集指定博客上的随笔.',
@@ -221,6 +222,29 @@ class MainFrame(wx.Frame):
             pos = ( rect[0], rect[1] + rect[3] + 5 ),
             size = (rect[2], 20)
         )
+
+
+        #-----事件绑定-----
+        #--菜单按钮事件
+        self.Bind( wx.EVT_BUTTON, self.OnSelectSpiderMode, self.lstMenu[0] )    #绑定蜘蛛模式按钮, 响应方法:self.OnSelectSpiderMode
+        self.Bind( wx.EVT_BUTTON, self.OnSelectUserBlogMode, self.lstMenu[1] )  #绑定蜘蛛模式按钮, 响应方法:self.OnSelectUserBlogMode
+        self.Bind( wx.EVT_BUTTON, self.OnSelectUseKindsMode, self.lstMenu[2] )  #绑定蜘蛛模式按钮, 响应方法:self.OnSelectUseKindsMode
+
+
+    #-----事件响应-----
+    #--菜单按钮事件响应
+    #响应菜单"蜘蛛模式"按钮
+    def OnSelectSpiderMode( self, evt ):
+        dlg = CnblogsFan_GetArgumentsDlg.SpiderModeDlg(self)
+        dlg.ShowModal()
+    #响应菜单"指定采集"按钮
+    def OnSelectUserBlogMode( self, evt ):
+        dlg = CnblogsFan_GetArgumentsDlg.SelectUserBlogDlg(self)
+        dlg.ShowModal()
+    #响应菜单"分类采集"按钮
+    def OnSelectUseKindsMode( self, evt ):
+        dlg = CnblogsFan_GetArgumentsDlg.UseClassificationDlg(self)
+        dlg.ShowModal()
 
 
 
