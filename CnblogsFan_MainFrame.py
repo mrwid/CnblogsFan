@@ -13,6 +13,8 @@
 
 import wx
 import CnblogsFan_GetArgumentsDlg
+import CnblogsFan_SettingDlg
+import CnblogsFan_AboutDlg
 
 class MainFrame(wx.Frame):              #从wx.Frame类得到继承
     def __init__(self):                 #初始化窗口
@@ -26,7 +28,7 @@ class MainFrame(wx.Frame):              #从wx.Frame类得到继承
         self.Center()                                                           #令窗口在屏幕中居中显示
 
         #-----加载程序图标-----
-        self.AppLogo = wx.Icon('src//ICON_CnblogsFan.ico', wx.BITMAP_TYPE_ICO)
+        self.AppLogo = wx.Icon('src/ICON_CnblogsFan.ico', wx.BITMAP_TYPE_ICO)
         self.SetIcon(self.AppLogo)
 
         #-----创建窗口面板-----
@@ -85,7 +87,7 @@ class MainFrame(wx.Frame):              #从wx.Frame类得到继承
         #y = 上个控件在y方向上的坐标的三倍
         x, y = rect[0] + ( rect[2]-48 )/2, rect[1] * 3
         for i in range( len(self.localImgSrc) ):        #for 循环生成按钮控件
-            tempImg = wx.Image( 'src//'+ self.localImgSrc[i], wx.BITMAP_TYPE_ANY )      #从本地加载图标文件
+            tempImg = wx.Image( 'src/'+ self.localImgSrc[i], wx.BITMAP_TYPE_ANY )      #从本地加载图标文件
             w, h = tempImg.GetSize()                    #获取加载到的图标尺寸
             img = tempImg.Scale( w*0.8, h*0.8 )         #将图像缩放至80%
             self.lstMenu.append(                        #创建一个菜单按钮并将其加入到菜单按钮列表中
@@ -235,9 +237,11 @@ class MainFrame(wx.Frame):              #从wx.Frame类得到继承
 
         #-----事件绑定-----
         #--菜单按钮事件
-        self.Bind( wx.EVT_BUTTON, self.OnSelectSpiderMode, self.lstMenu[0] )    #绑定蜘蛛模式按钮, 响应方法:self.OnSelectSpiderMode
-        self.Bind( wx.EVT_BUTTON, self.OnSelectUserBlogMode, self.lstMenu[1] )  #绑定蜘蛛模式按钮, 响应方法:self.OnSelectUserBlogMode
-        self.Bind( wx.EVT_BUTTON, self.OnSelectUseKindsMode, self.lstMenu[2] )  #绑定蜘蛛模式按钮, 响应方法:self.OnSelectUseKindsMode
+        self.Bind( wx.EVT_BUTTON, self.OnSelectSpiderMode,   self.lstMenu[0] )  #绑定蜘蛛模式按钮, 响应方法:self.OnSelectSpiderMode
+        self.Bind( wx.EVT_BUTTON, self.OnSelectUserBlogMode, self.lstMenu[1] )  #绑定指定模式按钮, 响应方法:self.OnSelectUserBlogMode
+        self.Bind( wx.EVT_BUTTON, self.OnSelectUseKindsMode, self.lstMenu[2] )  #绑定分类采集按钮, 响应方法:self.OnSelectUseKindsMode
+        self.Bind( wx.EVT_BUTTON, self.OnSelectSetting,      self.lstMenu[3] )  #绑定软件设置按钮, 响应方法:self.OnSelectSetting
+        self.Bind( wx.EVT_BUTTON, self.OnSelectAbout,        self.lstMenu[4] )  #绑定关于软件按钮, 响应方法:self.OnSelectAbout
 
 
     #-----事件响应-----
@@ -246,17 +250,31 @@ class MainFrame(wx.Frame):              #从wx.Frame类得到继承
     def OnSelectSpiderMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.SpiderModeDlg(self)
         dlg.ShowModal()
+        dlg.Destroy()
 
     #响应菜单"指定采集"按钮
     def OnSelectUserBlogMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.SelectUserBlogDlg(self)
         dlg.ShowModal()
+        dlg.Destroy()
 
     #响应菜单"分类采集"按钮
     def OnSelectUseKindsMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.UseClassificationDlg(self)
         dlg.ShowModal()
+        dlg.Destroy()
 
+    #响应菜单"软件设置"按钮
+    def OnSelectSetting( self, evt ):
+        dlg = CnblogsFan_SettingDlg.SettingDlg()
+        dlg.ShowModal()
+        dlg.Destroy()
+
+    #响应菜单"关于软件"按钮
+    def OnSelectAbout( self, evt ):
+        dlg = CnblogsFan_AboutDlg.AboutDlg()
+        dlg.ShowModal()
+        dlg.Destroy()
 
 
 def test():
