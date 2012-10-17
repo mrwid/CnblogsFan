@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding:utf-8
 #-------------------------------------------------------------------------------
-# Name:        CnblogsFan_GetBlogsURL.py
+# Name:        CnblogsFan_GetArgumentsDlg.py
 # Purpose:
 #
 # Author:      Mr.Wid
