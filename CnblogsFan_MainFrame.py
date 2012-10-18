@@ -250,19 +250,16 @@ class MainFrame(wx.Frame):              #从wx.Frame类得到继承
     def OnSelectSpiderMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.SpiderModeDlg(self)
         dlg.ShowModal()
-        dlg.Destroy()
 
     #响应菜单"指定采集"按钮
     def OnSelectUserBlogMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.SelectUserBlogDlg(self)
         dlg.ShowModal()
-        dlg.Destroy()
 
     #响应菜单"分类采集"按钮
     def OnSelectUseKindsMode( self, evt ):
         dlg = CnblogsFan_GetArgumentsDlg.UseClassificationDlg(self)
         dlg.ShowModal()
-        dlg.Destroy()
 
     #响应菜单"软件设置"按钮
     def OnSelectSetting( self, evt ):
