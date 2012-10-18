@@ -148,12 +148,13 @@ class AboutDlg(wx.Dialog):
         txtOthers.SetValue(CnblogsFan_Others)
 
         #------确定按钮------
+        rect = self.GetClientRect()
         self._btnOK = wx.Button(
             self,
             id = wx.ID_OK,
             label = u"确定",
-            pos = (170, 435),
-            size = (60, 30)
+            pos = ( (rect[2] - 60) /2 , rect[3] - 40 ),
+            size = ( 60, 30 )
         )
 
 def test():
