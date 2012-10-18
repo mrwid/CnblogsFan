@@ -44,7 +44,7 @@ class SpiderModeDlg(wx.Dialog):
             self,
             label = u'遍历方式选择',
             pos = ( rect[0] - 20, rect[1] + 40 ),
-            size = ( rect[0] + self.txtCnblogsUrl.Rect[2] + 50, 80 ),
+            size = ( rect[0] + self.txtCnblogsUrl.Rect[2] + 50, 80 )
         )
         rect = self.groupWorkMode.Rect
         self.rdoboxWorkMode = wx.RadioBox(
@@ -105,7 +105,7 @@ class SelectUserBlogDlg(wx.Dialog):
         self.btnNextStep = wx.Button(
             self,
             label = u'下一步',
-            size = (80, 50),
+            size = (80, 50)
         )
         self.btnNextStep.Position = (
             (self.ClientRect[2] - self.btnNextStep.Rect[2]) / 2 ,
@@ -142,7 +142,7 @@ class UseClassificationDlg(wx.Dialog):
             self,
             label = u'选择分类',
             pos = ( 20, 20 ),
-            size = ( 350, 120 ),
+            size = ( 350, 120 )
         )
         #--所有分类
         allType= [
@@ -190,7 +190,7 @@ class UseClassificationDlg(wx.Dialog):
 
 def test():
     app = wx.PySimpleApp()
-    dlg = UseClassificationDlg()
+    dlg = SelectUserBlogDlg()
     dlg.ShowModal()
 
 if __name__ == '__main__':
